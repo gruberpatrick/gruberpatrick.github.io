@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exploring the housing market.</title>
+    <style type="text/css">
+      #navigation{text-align:center;padding:20px 0;border-bottom:1px solid #ccc;}
+      #navigation .button{padding:5px;background:#f1f1f1;border:1px solid #ccc;border-radius:4px;margin:0 5px;cursor:pointer;}
+      #slide h1{text-align:center;}
+      #sidebar{width:400px;float:left;margin-top:20px;}
+      #content{float:left;margin-top:20px;}
+    </style>
+  </head>
+  <body>
+
+    <div id="navigation"></div>
+
+    <div id="slide"></div>
+
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+    
+      var navigation = document.getElementById('navigation');
+      var slide = document.getElementById('slide');
+
+      var params = [
+        {
+          title: 'Overall Housing market',
+          description: 'The housing market dataset is often referenced in machine learning problems.',
+        },
+        {
+          title: 'Cheap houses',
+          description: '',
+        },
+        {
+          title: 'Expensive houses',
+          description: '',
+        }
+      ];
+
+      function resetSlide(){
+        slide.innerHTML = "";
+      }
+
+      function addHTML(html){
+        slide.innerHTML += html;
+      }
+
+      function activateSlide(pointer){
+        resetSlide();
+        addHTML('<div id="sidebar"><h1>' + params[pointer].title + '</h1><p>' + params[pointer].description + '</p></div>');
+        addHTML('<div id="content"></div>');
+        var x = d3.scale.linear().range([0, 500]);
+        var y = d3.scale.linear().range([500, 0]);
+        d3.csv('housing.csv', function(error, data){
+          console.log(data);
+        });
+      }
+
+      function createNaviation(){
+        for(var it = 0; it < params.length; it++){
+          navigation.innerHTML += '<a class="button" href="javascript: activateSlide('+ it + ');">' + (it + 1) + '</a>';
+        }
+      }
+
+      createNaviation();
+      activateSlide(0);
+    
+    </script>
+  </body>
+</html>
