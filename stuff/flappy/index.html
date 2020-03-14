@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flappy</title>
+    <link href="./static/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+    <div id="game_canvas">
+      <div id="world">
+        <div id="pipe"><div id="space"><div id="top"></div><div id="bottom"></div></div></div>
+      </div>
+      <div id="flappy"><img src="./static/flappy.png" width="100%" alt="flappy" /></div>
+      <div id="floor"></div>
+      <div id="score">0</div>
+      <div id="stats">
+        <strong>STATS:</strong><br />
+        Bird<br />&nbsp;&nbsp;x:<span id="birdx">-</span><br />&nbsp;&nbsp;y:<span id="birdy">-</span><br />
+        Pipe<br />&nbsp;&nbsp;x:<span id="spacex">-</span><br />&nbsp;&nbsp;y:<span id="spacey">-</span>
+      </div>
+      <div id="menu">
+        <div id="menu_inner">
+          <p><strong>SPACE or Mouse</strong></p>
+          <span id="play_button">Play</span>
+          <span id="debug_button">Debug: <span id="debug_value">OFF</span></span>
+          <span id="cheats_button">Cheats: <span id="cheats_value">OFF</span></span>
+          <p><a href="./README.txt" target="_blank">Read about it here</a></p>
+        </div>
+      </div>
+      <div id="final"><div id="final_inner">You beat the game.<br />Congratulations, you've cleared 99 pipes.<br /><span id="cheater">CHEATER!</span></div></div>
+      <span id="pause_button">II</span>
+    </div>
+
+    <script type="text/javascript" src="./static/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./static/flappy.js"></script>
+
+  </body>
+</html>

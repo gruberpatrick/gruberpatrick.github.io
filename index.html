@@ -1,11 +1,124 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Patrick Gruber</title>
+    <title>Patrick Gruber - Software Dev - Austin, TX</title>
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    <link rel="stylesheet" type="text/css" href="./style/font-awesome.min.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133849449-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-133849449-1');
+    </script>
   </head>
+
   <body>
 
-	<h1>Patrick Gruber</h1>
+    <div id="console">
+      <input type="text" id="stdin" readonly="readonly" />
+    </div>
+
+    <header>
+      <div id="particles"></div>
+      <div id="header-inner">
+        <h1>Patrick Gruber</h1>
+        <div class="social">
+          <a href="" id="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+          <a href="http://gruber.fyi/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <h3>Education</h3>
+    <div class="wrapper list" id="certificates">
+      <h4>2019</h4>
+      <div class="element">
+        Currently: <a href="https://cs.illinois.edu/" target="_blank">Master's in Computer Science / Data Science by University of Illinois at Urbana-Champaign</a>
+      </div>
+      <h4>2018</h4>
+      <div class="element">
+        Dec 14: <a href="https://cs.txstate.edu/" target="_blank">Bachelor's in Computer Science by Texas State University</a>
+      </div>
+      <div class="element">
+        Nov 03: <a href="https://printer.udacity.com/v2/certificate/WGAPPHST/download" target="_blank">Deep Learning Nanodegree Program by Udacity</a>
+      </div>
+      <div class="element">
+        <div style="padding:0 0 5px 0;">
+          <strong><a href="https://www.coursera.org/account/accomplishments/specialization/U74LGUNWER47" target="_blank">Deep Learning Specialization by deeplearning.ai</a></strong>
+        </div>
+        <div>
+          <ul>
+            <li>Jun 23: <a href="https://www.coursera.org/account/accomplishments/records/M9QV9QHK8QPF" target="_blank">Sequence Models</a></li>
+            <li>Jun 01: <a href="https://www.coursera.org/account/accomplishments/records/Z93GFVSZ996Y" target="_blank">Convolutional Neural Networks</a></li>
+            <li>May 16: <a href="https://www.coursera.org/account/accomplishments/records/R83SRS8D8WKY" target="_blank">Structuring Machine Learning Projects</a></li>
+            <li>May 12: <a href="https://www.coursera.org/account/accomplishments/records/M8967MFE4ZX4" target="_blank">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</a></li>
+            <li>Apr 18: <a href="https://www.coursera.org/account/accomplishments/records/VUEBFPFRPJ22" target="_blank">Neural Networks and Deep Learning</a></li>
+          </ul>
+        </div>
+      </div>
+      <h4>2017</h4>
+      <div class="element">
+        Dec 14: <a href="https://courses.edx.org/certificates/81a216340eeb4454bd668832a6f0e294" target="_blank">USMx - BIF003x: Statistical Analysis in Bioinformatics</a>
+      </div>
+      <div class="element">
+        Jul 31: <a href="https://courses.edx.org/certificates/8708e005b3614972b09e1d9a66583386" target="_blank">ColumbiaX - CSMM.101x: Artificial Intelligence (AI)</a>
+      </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+    <div id="overlay">
+      <div id="frame"><a id="frame-open" href="" target="_blank">Open in new tab</a><div id="frame-close">X</div><iframe id="fframe"></iframe></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./style/particles.min.js"></script>
+    <script type="text/javascript">
+      document.getElementById("email").setAttribute("href", "mailto:p{{here}}gruber.io".replace("{{here}}", "@"));
+      var buffer = "";
+      $(document).bind("keyup", function(e){
+        if(e.originalEvent.key == "Escape"){
+          buffer = "";
+          evaluate(command);
+        }else if(e.originalEvent.key == "Backspace"){
+          buffer = buffer.substring(0, buffer.length - 1);
+        }else if(e.originalEvent.key == "Enter"){
+          evaluate(buffer);
+        }else if(e.originalEvent.key >= "a" && e.originalEvent.key <= "z"){
+          buffer += e.originalEvent.key;
+        }
+        $("#stdin").val(buffer);
+        if(buffer == "") $("#console").hide();
+        else $("#console").show();
+      });
+      function evaluate(command){
+        buffer = "";
+        $("#console").hide();
+        if(typeof sources[command] != "undefined"){
+          $("#frame-open").attr("href", sources[command]);
+          $("#fframe").attr("src", sources[command]);
+          $("#overlay").show();
+        }else{
+          $("#overlay").hide();
+        }
+      }
+      $("#frame-close").bind("click", function(){
+        $("#overlay").hide();
+      });
+      var sources = {
+        "flappy": "./stuff/flappy/index.html",
+        "mines": "./stuff/mines/index.html",
+        "help": "./stuff/help.html"
+      };
+      particlesJS("particles", {"particles":{"number":{"value":160,"density":{"enable":true,"value_area":800}},"color":{"value":"#666"},"shape":{"type":"circle","stroke":{"width":0,"color":"#ffffff"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":1,"random":true,"anim":{"enable":true,"speed":1,"opacity_min":0,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":4,"size_min":0.3,"sync":false}},"line_linked":{"enable":true,"distance":200,"color":"#666","opacity":0.1,"width":1},"move":{"enable":true,"speed":0.5,"direction":"none","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":600}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"bubble"},"onclick":{"enable":false,"mode":"repulse"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":250,"size":0,"duration":2,"opacity":0,"speed":3},"repulse":{"distance":400,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+    </script>
 
   </body>
+
 </html>

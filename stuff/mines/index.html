@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Mines</title>
+    <link rel="stylesheet" type="text/css" href="./static/style.css" />
+  </head>
+
+  <body>
+
+    <div id="game_canvas"></div>
+
+    <div id="menu">
+      <div id="menu_inner">
+        <div id="game_result"></div>
+        <div id="game_menu">
+          Width:<br />
+          <input type="text" value="10" id="game_width" /><br /><br />
+          Height:<br />
+          <input type="text" value="10" id="game_height" /><br /><br />
+          Mine count:<br />
+          <input type="text" value="6" id="game_mines" /><br /><br />
+          <button id="game_start">Start</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./static/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="./static/mines.js"></script>
+
+  </body>
+
+</html>
