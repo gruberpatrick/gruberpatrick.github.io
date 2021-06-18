@@ -1,30 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400,700&display=swap');
 
-body{background:#fff;font-family:"Roboto",Arial,sans-serif;color:#000;margin:0;padding:0;font-size:18px;}
+body{background:#fff;font-family:"Open Sans",Arial,sans-serif;color:#000;margin:0;padding:0;font-size:18px;}
 
 a{color:#000;}
 
-header{display:block;width:100%;text-align:center;position:relative;overflow:hidden;}
-#gunnar-foundation{margin-top:80px;}
-#header-inner{padding:130px 0px;margin:0 auto;max-width:800px;position:relative;z-index:200;}
+header{display:block;width:100%;text-align:center;position:relative;overflow:hidden;z-index:10;}
+#gunnar-foundation{margin-top:40px;}
+#header-inner{padding:60px 0px;margin:0 auto;max-width:800px;position:relative;z-index:200;}
 #particles{position:absolute;left:0;top:0;width:100%;height:100%;z-index:100;}
 
 #console{display:block;position:fixed;left:0;top:0;z-index:300;width:100%;display:none;box-sizing:border-box;}
 #console input{width:100%;display:block;background:rgba(0,0,0,0.8);color:#fff;padding:10px;outline:none;font-size:40px;border:none;box-sizing:border-box;text-align:center;}
 
-h1{font-size:80px;margin:0;font-weight:bold;}
+h1{font-size:70px;margin:0;font-weight:normal;}
 h2{margin:20px 0 0 0;font-size:35px;font-weight:normal;}
 h3{background:#000;color:#fff;padding:10px;text-align:center;font-size:35px;margin:0;}
 h4{font-size:25px;margin:30px 0;}
 
 .wrapper{margin:0 auto;padding:80px 20px;}
-.wrapper.grey{background:#f1f1f1;}
-.wrapper-inner{max-width:800px;margin:0 auto;}
+.wrapper.grey{background:#f2f6fc;transform: skewY(-4deg);padding-bottom:100px;}
+.wrapper.grey .wrapper-inner{transform: skewY(4deg);}
+.wrapper-inner{max-width:800px;margin:0 auto;padding-top:50px;}
 .wrapper .row .img{text-align:center;}
 .wrapper .row .img img{height:100%;max-height:50px;}
 .wrapper row:first-child h4{margin-top:0;}
 div.element.left{text-align:left;}
 
+.list{padding-top:40px;}
 .list, #certificates{margin-bottom:40px;}
 .list div.element, #certificates div.element{border:0;padding-bottom:0;text-align:left;font-size:18px;}
 .list div.element:last-child, #certificates div.element:last-child{padding-bottom:20px;}
